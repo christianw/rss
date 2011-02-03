@@ -1,0 +1,42 @@
+<ul class="globalmenu">
+  <% if (params[:all].blank?)  %>
+    <% #li { link_to "show all", :action => :show, :id => @feed, :all => 1 } %>
+  <% else %>
+    <li><%= link_to "show new", :action => :show, :id => @feed %></li>
+  <% end %>
+  <li><%= link_to image_tag("skip.png"), { :action => :mark_as_read, :id => @feed }, :accesskey => 'Y' %></li>
+  <li><%= link_to image_tag("refresh.png"), :action => :show, :id => @feed, :new => params[:new] %></li>
+  <li><%= link_to image_tag("previous.png"), :action => :previous_feed, :id => @feed %></li>
+  <li><%= link_to image_tag("next.png"), :action => :next_feed, :id => @feed %></li>
+</ul>
+
+<div id="feedlist">
+  <ul class="feedlist">
+    <% @feeds.each do |feed| %>
+      <li class="<%=@feed.id == feed.id ? "selected" : ""%>">
+        <%= link_to feed.name, :action => "show", :id => feed  %>
+        <span><%=feed.unread%></span>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="items">
+  <div id="items_inner">
+    <h1><%=@feed.name%></h1>
+    <ul class="item">
+      <% css = %w(dark light) %>
+      <% @items.each_with_index do |i, c| %>
+        <li id="item_<%=i.id%>" class="<%=css[c%2]%>">
+        <% if @items.size > 10 %>
+          <%= link_to i.title, { :controller => :item, :action => :collapse, :id => i}, :remote => true, :class => "title" %>
+          <%= link_to " (original)", { :controller => "item", :action => "original", :id => i.id }, :target => "_blank", :class => "original" %>
+        <% else %>
+          <%= render :partial => "item/item", :locals => { :item => i, :collapsed => true } %>
+        <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+

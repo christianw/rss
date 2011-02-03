@@ -1,0 +1,176 @@
+HTML, BODY {
+  font-family: Arial, Helvetica, Sans-Serif;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  height: 100%;
+}
+
+IMG {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+H1 { font-size: 18px; }
+H2 { font-size: 16px;}
+H3 { font-size: 14px;}
+
+A {
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+}
+
+ul.globalmenu {
+	margin: 0;
+	padding: 0;
+	z-index: 10;
+	background-color: #ccc;
+	height: 30px;
+	left: 0;
+	top: 0;
+	position: fixed;
+	list-style-type: none;
+	display: inline;
+	width: 100%;
+	border-bottom: 1px solid black;
+}
+
+ul.globalmenu li {
+	display: inline;
+	padding: 2px 5px 2px 5px;
+}
+
+
+/*
+ * Feed list
+*/
+div#feedlist {
+	float: left;
+	height: 100%;
+	overflow: auto;
+	background-color: #dbe2f1;
+}
+
+ul.feedlist {
+	list-style-type: none;
+	padding: 0.5em 0 0 0;
+	margin: 0;
+	margin: 30px 0 1em 0;
+	width: 15em;
+	overflow: auto;
+}
+
+ul.feedlist li {
+	position: relative;
+	padding: 0.2em 0 0.2em 0.5em;
+	text-align: right;
+}
+
+ul.feedlist li a { 
+	position: absolute;
+	display: block;
+	top: 0.2em; left: 0.2em;
+	text-align: left; 
+}
+
+ul.feedlist li span {
+	text-align: right;
+    background-color: #a6bbdd;
+    font-weight: bold;
+	color: white;
+    margin: 0 0.3em 0 0;
+    padding: 0.1em 0.3em 0.1em 0.3em;
+}
+
+ul.feedlist li.selected { color: white; background-color: #a2a2a2}
+ul.feedlist li.selected span { color: white; }
+
+
+
+/*
+ * view list of items
+*/
+div#items {
+	height: 100%;
+	overflow: auto;
+	border-left: 1px solid gray;
+}
+
+div#items_inner {
+  margin: 30px 0 1em 0;
+}
+
+div#items_inner > h1 {
+  position: fixed;
+  background-color: #a6bbdd;
+  padding: 0.5em;
+  margin: 0;
+  width: 100%;
+  border-bottom: 1px solid black;
+  border-left: 1px solid gray;
+}
+
+ul.item {
+	padding: 3.5em 0 0;
+	list-style-type: none;
+}
+
+ul.item li {
+	border: none;
+	padding: 0.2em 0 0.2em 0.5em;
+	margin: 0;
+	border-bottom: 1px solid gray;
+}
+
+ul.item li a.title  { }
+ul.item li a.original  { color: #a6bbdd; }
+
+
+ul.item li div.fullitem {
+	margin: -0.2em 0 0 -0.5em;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+}
+
+ul.item li div.fullitem > * {
+	padding-left: 0.6em;
+}
+
+ul.item li div.fullitem h2 {
+	background-color: #a2a2a2;
+	color: white;
+}
+
+ul.item li div.fullitem h3 {
+	background-color: #ccc;
+	font-size: 1em;
+	border-bottom: 1px solid black;
+}
+
+ul.item li div.fullitem p {
+	margin: 0;
+	padding: 0.2em 0 0 0.6em;
+}
+
+ul.item li.star div.fullitem {
+	background-color: #DBDDFF;
+}
+
+ul.item h2, .item h3, .item h4 {
+	margin: 0;
+}
+
+
+ul.item li ul {
+	margin: 0;
+	padding: 5px 0 0 0;
+	list-style-type: none;
+}
+
+.item li ul li {
+	display: inline;
+	border: none;
+	padding: 0 5px 0 0;
+}

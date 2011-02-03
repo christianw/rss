@@ -1,0 +1,23 @@
+<div class="fullitem"> 
+  <h2>
+    <%= item.title %>
+    <%= link_to " (original)", { :controller => "item", :action => "original", :id => item.id }, :target => "_blank", :class => "original" %>
+  </h2>
+  <h3><%=raw "in #{item.feed.name} at #{item.created_at.strftime("%d.%m.%Y %H:%M")}"%></h3>
+  <p><%=raw (collapsed ? item.short_content : item.remove_script+"") %></p>
+  <ul>
+    <li>
+      <%= link_to "mark as read", {:controller => :item, :action => :mark_as_read, :id => item}, :remote => true %>
+    </li>
+    <% if (item.long?) %>
+      <% if (collapsed) %>
+        <li> <%= link_to "expand", {:controller => :item, :action => :expand, :id => item}, :remote => true %></li>
+      <% else %>
+        <li> <%= link_to "collapse", {:controller => :item, :action => :collapse, :id => item}, :remote => true %></li>
+      <% end %>
+    <% end %>
+
+    <li><%= link_to "add star", {:controller => :item, :action => :add_star, :id => item}, :remote => true %>
+    <li><%= link_to "mark read till here", :controller => :feed, :action => :mark_as_read, :id => item.feed.id, :item_id => item.id %> </li>
+  </ul>
+</div>

@@ -1,0 +1,9 @@
+<ul class="feed">
+  <% @feeds.each do |feed| %>
+    <li>
+      <%= link_to feed.name, :action => "show", :id => feed %>
+      (<%= feed.unread %>)
+    </li>
+  <% end %>
+</ul>
+
